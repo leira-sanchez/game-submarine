@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let player = SKSpriteNode(imageNamed: "submarine")
     var timer: Timer?
     let scoreLabel = SKLabelNode(fontNamed: "Baskerville-Bold")
+    let music = SKAudioNode(fileNamed: "balloon-game.mp3")
     
     var score = 0 {
         didSet {
@@ -23,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // this method is called when your game scene is ready to run
         player.position = CGPoint(x: -400, y: 250)
         player.physicsBody?.categoryBitMask = 1
+        player.physicsBody?.collisionBitMask = 0
         addChild(player)
         
         physicsWorld.gravity = CGVector(dx: 0, dy: -5)
@@ -39,6 +41,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position.y = 320
         addChild(scoreLabel)
         score = 0
+        
+        addChild(music)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,6 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let value = player.physicsBody!.velocity.dy * 0.001
         let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
         player.run(rotate)
+        
+        if player.position.y > 300 {
+            player.position.y = 300
+        }
     }
     
     func parallaxScroll(image: String, y: CGFloat, z: CGFloat, duration: Double, needsPhysics: Bool) {
@@ -104,8 +112,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // decide where to create it
         obstacle.position.y = CGFloat.random(in: -300 ..< 350)
         
-        // make it move across the screen
-        let action = SKAction.moveTo(x: -768, duration: 6)
+        // make it move across the screen and destroy after it leaves screen
+        let move = SKAction.moveTo(x: -768, duration: 6)
+        let remove = SKAction.removeFromParent()
+        let action = SKAction.sequence([move, remove])
         obstacle.run(action)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
@@ -130,9 +140,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 explosion.position = player.position
                 addChild(explosion)
             }
+            run(SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false))
             player.removeFromParent()
+            music.removeFromParent()
+            // wait for two seconds then run some code
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // create a new scene from GameScene.sks
+                if let scene = GameScene(fileNamed: "GameScene") {
+                    // make it stretch to fill all available space
+                    scene.scaleMode = .aspectFill
+
+                    // present it immediately
+                    self.view?.presentScene(scene)
+                }
+            }
         }  else if node.name == "score" {
             node.removeFromParent()
+            run(SKAction.playSoundFileNamed("score.wav", waitForCompletion: false))
             score += 1
         }
     }

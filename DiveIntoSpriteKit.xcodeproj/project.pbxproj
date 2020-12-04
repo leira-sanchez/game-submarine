@@ -15,6 +15,9 @@
 		51C6E4CB1F951D59001794D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C6E4CA1F951D59001794D5 /* Assets.xcassets */; };
 		51C6E4CE1F951D59001794D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C6E4CC1F951D59001794D5 /* LaunchScreen.storyboard */; };
 		84CDCCA6257AD64000C168A2 /* WaterExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84CDCCA5257AD64000C168A2 /* WaterExplosion.sks */; };
+		84CDCCAA257AF7F400C168A2 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CDCCA9257AF7F400C168A2 /* explosion.wav */; };
+		84CDCCAD257AF86900C168A2 /* score.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CDCCAC257AF86900C168A2 /* score.wav */; };
+		84CDCCB0257AF93500C168A2 /* balloon-game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84CDCCAF257AF93500C168A2 /* balloon-game.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		51C6E4CD1F951D59001794D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51C6E4CF1F951D59001794D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CDCCA5257AD64000C168A2 /* WaterExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WaterExplosion.sks; sourceTree = "<group>"; };
+		84CDCCA9257AF7F400C168A2 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = ../../Assets/Project3/explosion.wav; sourceTree = "<group>"; };
+		84CDCCAC257AF86900C168A2 /* score.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = score.wav; path = ../../Assets/Project3/score.wav; sourceTree = "<group>"; };
+		84CDCCAF257AF93500C168A2 /* balloon-game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "balloon-game.mp3"; path = "../../Assets/Project3/balloon-game.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				51C6E4CA1F951D59001794D5 /* Assets.xcassets */,
 				51C6E4CC1F951D59001794D5 /* LaunchScreen.storyboard */,
 				51C6E4CF1F951D59001794D5 /* Info.plist */,
+				84CDCCA9257AF7F400C168A2 /* explosion.wav */,
+				84CDCCAC257AF86900C168A2 /* score.wav */,
+				84CDCCAF257AF93500C168A2 /* balloon-game.mp3 */,
 			);
 			path = DiveIntoSpriteKit;
 			sourceTree = "<group>";
@@ -132,8 +141,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CDCCAA257AF7F400C168A2 /* explosion.wav in Resources */,
 				51C6E4C91F951D59001794D5 /* Main.storyboard in Resources */,
+				84CDCCAD257AF86900C168A2 /* score.wav in Resources */,
 				51C6E4C01F951D59001794D5 /* GameScene.sks in Resources */,
+				84CDCCB0257AF93500C168A2 /* balloon-game.mp3 in Resources */,
 				51C6E4CB1F951D59001794D5 /* Assets.xcassets in Resources */,
 				51C6E4CE1F951D59001794D5 /* LaunchScreen.storyboard in Resources */,
 				84CDCCA6257AD64000C168A2 /* WaterExplosion.sks in Resources */,
